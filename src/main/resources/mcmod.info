@@ -1,0 +1,16 @@
+[
+{
+  "modid": "speedview",
+  "name": "Speed View Mod",
+  "description": "Player Move Speed View mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["kuma_yamamoto"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
