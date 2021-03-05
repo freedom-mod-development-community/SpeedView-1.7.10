@@ -6,12 +6,11 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ForgeEventFactory;
 
-@Mod(modid = speedviewMod.MOD_ID, name = "SpeedViewMod", version = "[1.7.10]-0.0")
-public class speedviewMod {
+@Mod(modid = SpeedViewMod.MOD_ID, name = "SpeedViewMod", version = "[1.7.10]-0.0")
+public class SpeedViewMod {
     public static final String MOD_ID = "SpeedViewMod";
     public static final String DOMAIN = "speedview";
 
@@ -26,5 +25,6 @@ public class speedviewMod {
     public void init(FMLInitializationEvent event) {
         proxy.init();
         FMLCommonHandler.instance().bus().register(new TickEventManager());
+        FMLCommonHandler.instance().bus().register(new KeyInputObserver());
     }
 }

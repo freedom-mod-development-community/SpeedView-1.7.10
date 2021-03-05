@@ -11,6 +11,7 @@ public class SpeedViewClientProxy extends SpeedViewProxy{
     public void init() {
         speedViewGui = new SpeedViewGui();
         mc = Minecraft.getMinecraft();
+        KeyInputObserver.registerClientActions();
     }
 
     @Override

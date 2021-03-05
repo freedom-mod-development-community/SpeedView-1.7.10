@@ -7,7 +7,7 @@ public class TickEventManager {
     @SubscribeEvent
     public void onRenderTickEvent(TickEvent.RenderTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
-            speedviewMod.proxy.onRenderTickPost();
+            SpeedViewMod.proxy.onRenderTickPost();
         }
     }
 }
