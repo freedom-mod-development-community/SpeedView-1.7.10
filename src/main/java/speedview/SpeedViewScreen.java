@@ -59,9 +59,16 @@ public class SpeedViewScreen extends GuiScreen {
         double kmph = mps * 3.6;
         double knot = mps * 0.5144;
         ScaledResolution scaledresolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
+
+        int color;
+        if(Vars.holdSpeed){
+            color = -1;
+        }else{
+            color = 0xf3bd63;
+        }
         mc.fontRenderer.drawString(String.format("%5.2f",kmph) + "km/h (" + String.format("%03.2f",knot) + "knot) " + (Vars.holdSpeed ? "(Hold)" : ""),
                 scaledresolution.getScaledWidth() - 150,
                 scaledresolution.getScaledHeight() - mc.fontRenderer.FONT_HEIGHT - 20,
-                0xf3bd63);
+                color);
     }
 }
