@@ -6,6 +6,8 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.relauncher.Side;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeEventFactory;
 
@@ -13,6 +15,8 @@ import net.minecraftforge.event.ForgeEventFactory;
 public class SpeedViewMod {
     public static final String MOD_ID = "SpeedViewMod";
     public static final String DOMAIN = "speedview";
+    @Mod.Instance("SpeedViewMod")
+    public static SpeedViewMod instance;
 
     @SidedProxy(clientSide = "speedview.SpeedViewClientProxy")
     public static SpeedViewProxy proxy;
@@ -26,5 +30,8 @@ public class SpeedViewMod {
         proxy.init();
         FMLCommonHandler.instance().bus().register(new TickEventManager());
         FMLCommonHandler.instance().bus().register(new KeyInputObserver());
+        if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+            NetworkRegistry.INSTANCE.registerGuiHandler(SpeedViewMod.instance, new GuiHandler());
+        }
     }
 }

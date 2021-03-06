@@ -42,33 +42,33 @@ public class KeyInputObserver {
     }
 
     public static void registerClientActions() {
-//        registerKeyAction(new SpeedViewGuiOpen());
+        registerKeyAction(new SpeedViewGuiOpen());
         registerKeyAction(new SpeedHold());
     }
 
 
-//    public static class SpeedViewGuiOpen implements KeyInputObserver.KeyInputActioner {
-//        @Override
-//        public String getKeyName() {
-//            return "openSpeedViewGui";
-//        }
-//
-//        @Override
-//        public int getDefaultKeyID() {
-//            return Keyboard.KEY_BACKSLASH;
-//        }
-//
-//        @Override
-//        public String getCategoryName() {
-//            return "SpeedView Gui";
-//        }
-//
-//        @Override
-//        public void action() {
-//            Minecraft mc = Minecraft.getMinecraft();
-//            mc.thePlayer.openGui(Sp.instance, GuiID.NavSetting.getID(), mc.theWorld, 0, 0, 0);
-//        }
-//    }
+    public static class SpeedViewGuiOpen implements KeyInputObserver.KeyInputActioner {
+        @Override
+        public String getKeyName() {
+            return "openSpeedViewGui";
+        }
+
+        @Override
+        public int getDefaultKeyID() {
+            return Keyboard.KEY_BACKSLASH;
+        }
+
+        @Override
+        public String getCategoryName() {
+            return "SpeedView Gui";
+        }
+
+        @Override
+        public void action() {
+            Minecraft mc = Minecraft.getMinecraft();
+            mc.thePlayer.openGui(SpeedViewMod.instance, 0, mc.theWorld, 0, 0, 0);
+        }
+    }
 
 
 
@@ -80,7 +80,7 @@ public class KeyInputObserver {
 
         @Override
         public int getDefaultKeyID() {
-            return Keyboard.KEY_SLASH;
+            return Keyboard.KEY_APOSTROPHE;
         }
 
         @Override
@@ -90,13 +90,7 @@ public class KeyInputObserver {
 
         @Override
         public void action() {
-            if(Vars.holdSpeed){
-                Vars.holdSpeed = false;
-                Vars.holdedSpeed = 0.0;
-            }else{
-                Vars.holdSpeed = true;
-                Vars.holdedSpeed = SpeedViewGui.getSpeed(Minecraft.getMinecraft().thePlayer);
-            }
+            Vars.toggleHoldSpeed();
         }
     }
 }

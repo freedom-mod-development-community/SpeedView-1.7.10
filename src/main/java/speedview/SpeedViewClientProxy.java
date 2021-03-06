@@ -1,15 +1,14 @@
 package speedview;
 
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.client.ClientCommandHandler;
 
 public class SpeedViewClientProxy extends SpeedViewProxy{
-    private SpeedViewGui speedViewGui;
+    private SpeedViewScreen speedViewGui;
     Minecraft mc;
 
     @Override
     public void init() {
-        speedViewGui = new SpeedViewGui();
+        speedViewGui = new SpeedViewScreen();
         mc = Minecraft.getMinecraft();
         KeyInputObserver.registerClientActions();
     }

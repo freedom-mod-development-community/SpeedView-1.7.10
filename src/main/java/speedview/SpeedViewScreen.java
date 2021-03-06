@@ -5,7 +5,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class SpeedViewGui extends GuiScreen {
+public class SpeedViewScreen extends GuiScreen {
     @Override
     public boolean doesGuiPauseGame() {
         return false;
