@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0-Full"
+version = "1.1-Full"
 group= "Industry.Electrical.kuma.SpeedView-[1.7.10]" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "SpeedView-[1.7.10]"
 

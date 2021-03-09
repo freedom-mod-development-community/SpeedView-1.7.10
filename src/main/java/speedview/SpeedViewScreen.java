@@ -11,24 +11,15 @@ public class SpeedViewScreen extends GuiScreen {
         return false;
     }
 
-    public static double getSpeed(EntityPlayer player){
+    public static double getSpeed(EntityPlayer player) {
         double ret;
-        if (player.riddenByEntity == null) {
-//                if(player.onGround){
+        if (player.ridingEntity == null) {
             ret = Math.sqrt(player.motionX * player.motionX + player.motionZ * player.motionZ);
-//                }else {
-//                    ret = Math.sqrt(player.motionX * player.motionX + player.motionY * player.motionY + player.motionZ * player.motionZ);
-//                }
         } else {
-            double x = player.posX - player.lastTickPosX;
-            double z = player.posZ - player.lastTickPosZ;
-
-//                if(player.onGround){
-//                    ret = Math.sqrt(x * x + z * z);
-//                }else {
-            double y = player.posY - player.lastTickPosY;
+            double x = player.posX - player.prevPosX;
+            double y = player.posY - player.prevPosY;
+            double z = player.posZ - player.prevPosZ;
             ret = Math.sqrt(x * x + y * y + z * z);
-//                }
         }
         return ret;
     }
@@ -50,9 +41,9 @@ public class SpeedViewScreen extends GuiScreen {
         }
 
         double viewSpeedMpt;
-        if(Vars.holdSpeed){
+        if (Vars.holdSpeed) {
             viewSpeedMpt = Vars.holdedSpeed;
-        }else{
+        } else {
             viewSpeedMpt = mpt;
         }
         double mps = viewSpeedMpt * 20;
@@ -61,12 +52,12 @@ public class SpeedViewScreen extends GuiScreen {
         ScaledResolution scaledresolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 
         int color;
-        if(Vars.holdSpeed){
+        if (Vars.holdSpeed) {
             color = -1;
-        }else{
+        } else {
             color = 0xf3bd63;
         }
-        mc.fontRenderer.drawString(String.format("%5.2f",kmph) + "km/h (" + String.format("%03.2f",knot) + "knot) " + (Vars.holdSpeed ? "(Hold)" : ""),
+        mc.fontRenderer.drawString(String.format("%5.2f", kmph) + "km/h (" + String.format("%03.2f", knot) + "knot) " + (Vars.holdSpeed ? "(Hold)" : ""),
                 scaledresolution.getScaledWidth() - 150,
                 scaledresolution.getScaledHeight() - mc.fontRenderer.FONT_HEIGHT - 20,
                 color);
