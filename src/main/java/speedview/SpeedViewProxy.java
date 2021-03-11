@@ -5,4 +5,6 @@ abstract class SpeedViewProxy {
     }
 
     abstract void onRenderTickPost();
+
+    abstract void onClientTick();
 }

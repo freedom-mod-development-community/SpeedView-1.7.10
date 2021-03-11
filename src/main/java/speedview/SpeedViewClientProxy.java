@@ -21,4 +21,13 @@ public class SpeedViewClientProxy extends SpeedViewProxy{
             mc = Minecraft.getMinecraft();
         }
     }
+
+    @Override
+    void onClientTick() {
+        if (mc != null && mc.thePlayer != null) {
+            Vars.updateSpeed(mc.thePlayer);
+        } else {
+            mc = Minecraft.getMinecraft();
+        }
+    }
 }

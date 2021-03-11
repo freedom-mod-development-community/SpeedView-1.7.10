@@ -11,25 +11,12 @@ public class SpeedViewScreen extends GuiScreen {
         return false;
     }
 
-    public static double getSpeed(EntityPlayer player) {
-        double ret;
-        if (player.ridingEntity == null) {
-            ret = Math.sqrt(player.motionX * player.motionX + player.motionZ * player.motionZ);
-        } else {
-            double x = player.posX - player.prevPosX;
-            double y = player.posY - player.prevPosY;
-            double z = player.posZ - player.prevPosZ;
-            ret = Math.sqrt(x * x + y * y + z * z);
-        }
-        return ret;
-    }
-
     public double isDrawGui(EntityPlayer player) {
         if (mc == null) {
             mc = Minecraft.getMinecraft();
         }
         if (mc != null) {
-            return getSpeed(player);
+            return Vars.lastSpeed;
         }
         return -1;
     }

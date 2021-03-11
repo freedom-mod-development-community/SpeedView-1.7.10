@@ -10,4 +10,11 @@ public class TickEventManager {
             SpeedViewMod.proxy.onRenderTickPost();
         }
     }
+
+    @SubscribeEvent
+    public void onClientTickEvent(TickEvent.ClientTickEvent event){
+        if(event.phase == TickEvent.Phase.END){
+            SpeedViewMod.proxy.onClientTick();
+        }
+    }
 }
