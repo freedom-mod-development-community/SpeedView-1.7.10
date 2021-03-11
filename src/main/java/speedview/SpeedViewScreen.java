@@ -44,6 +44,7 @@ public class SpeedViewScreen extends GuiScreen {
         } else {
             color = 0xf3bd63;
         }
+        this.drawGradientRect(scaledresolution.getScaledWidth() - 155, scaledresolution.getScaledHeight() - 35, scaledresolution.getScaledWidth() - 10, scaledresolution.getScaledHeight() - 20, -804253680, -804253680);
         mc.fontRenderer.drawString(String.format("%5.2f", kmph) + "km/h (" + String.format("%03.2f", knot) + "knot) " + (Vars.holdSpeed ? "(Hold)" : ""),
                 scaledresolution.getScaledWidth() - 150,
                 scaledresolution.getScaledHeight() - mc.fontRenderer.FONT_HEIGHT - 20,
