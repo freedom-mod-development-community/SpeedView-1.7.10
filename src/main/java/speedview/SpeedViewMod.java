@@ -11,7 +11,7 @@ import cpw.mods.fml.relauncher.Side;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeEventFactory;
 
-@Mod(modid = SpeedViewMod.MOD_ID, name = "SpeedViewMod", version = "[1.7.10]-0.0-Full")
+@Mod(modid = SpeedViewMod.MOD_ID, name = "SpeedViewMod", version = "[1.7.10]-1.2-Full")
 public class SpeedViewMod {
     public static final String MOD_ID = "SpeedViewMod";
     public static final String DOMAIN = "speedview";
