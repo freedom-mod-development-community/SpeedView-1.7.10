@@ -40,10 +40,10 @@ public class SpeedCheckGui extends GuiContainer {
         if (button.id == 1) {
             if(Vars.holdSpeed) {
                 Date dateObj = new Date();
-                SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH;mm");
+                SimpleDateFormat format = new SimpleDateFormat("yy/MM/dd");
                 String time = format.format(dateObj);
-                String kmph = String.format("%5.2f", Vars.holdedSpeed * 20 * 3.6);
-                String commandString = "/give @p minecraft:paper 1 0 {display:{Name:\"Speed Ticket\",Lore:[\"" + time + "  " + kmph + "[km/h] \"]}}";
+                String kmph = String.format("%4.2f", Vars.holdedSpeed * 20 * 3.6);
+                String commandString = "/give "+ mc.thePlayer.getDisplayName() + " minecraft:paper 1 0 {display:{Name:\"Speed Ticket\",Lore:[\"" + time + "  " + kmph + "km/h \"]}}";
                 this.mc.thePlayer.sendChatMessage(commandString);
             }
         }
